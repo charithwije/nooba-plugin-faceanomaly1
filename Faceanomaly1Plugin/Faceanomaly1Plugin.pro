@@ -6,19 +6,19 @@ CONFIG(release, debug|release):    message(Release build!)
 
 QT -= gui
 
-TARGET = templatePlugin
+TARGET = faceanomaly1Plugin
 
-CONFIG(debug, debug|release): TARGET = TemplatePlugin_Debug
-CONFIG(release, debug|release): TARGET = TemplatePlugin_Release
+CONFIG(debug, debug|release): TARGET = Faceanomaly1Plugin_Debug
+CONFIG(release, debug|release): TARGET = Faceanomaly1Plugin_Release
 
-TEMPLATE = lib
+FACEANOMALY1 = lib
 CONFIG += dll
 
-DEFINES += TEMPLATEPLUGIN_LIB
+DEFINES += FACEANOMALY1PLUGIN_LIB
 
 # Input
-HEADERS += templateplugin.h templateplugin_global.h
-SOURCES += templateplugin.cpp
+HEADERS += faceanomaly1plugin.h faceanomaly1plugin_global.h
+SOURCES += faceanomaly1plugin.cpp
 
 CONFIG(debug, debug|release): DESTDIR = $$PWD/../../../NoobaVSS_build/NoobaFE/Debug/plugins/
 CONFIG(release, debug|release): DESTDIR = $$PWD/../../../NoobaVSS_build/NoobaFE/Release/plugins/

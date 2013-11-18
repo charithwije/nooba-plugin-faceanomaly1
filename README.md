@@ -1,4 +1,4 @@
-nooba-plugin-template
+nooba-plugin-faceanomaly1
 =====================
 
-template plugin for the current Nooba plugin API
+faceanomaly1 plugin for the current Nooba plugin API

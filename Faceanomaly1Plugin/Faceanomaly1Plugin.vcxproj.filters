@@ -35,23 +35,23 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="templateplugin.cpp">
+    <ClCompile Include="faceanomaly1plugin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_templateplugin.cpp">
+    <ClCompile Include="GeneratedFiles\Debug\moc_faceanomaly1plugin.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Release\moc_templateplugin.cpp">
+    <ClCompile Include="GeneratedFiles\Release\moc_faceanomaly1plugin.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="templateplugin_global.h">
+    <ClInclude Include="faceanomaly1plugin_global.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="templateplugin.h">
+    <CustomBuild Include="faceanomaly1plugin.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

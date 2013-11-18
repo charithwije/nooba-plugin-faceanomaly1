@@ -1,22 +1,22 @@
-#ifndef TEMPLATEPLUGIN_H
-#define TEMPLATEPLUGIN_H
+#ifndef FACEANOMALY1PLUGIN_H
+#define FACEANOMALY1PLUGIN_H
 
-#include "templateplugin_global.h"
+#include "faceanomaly1plugin_global.h"
 #include "noobapluginapi.h"
 
 #include <QObject>
 
-class TEMPLATEPLUGIN_EXPORT TemplatePlugin: public NoobaPluginAPI
+class FACEANOMALY1PLUGIN_EXPORT Faceanomaly1Plugin: public NoobaPluginAPI
 {
     Q_OBJECT
     Q_INTERFACES(NoobaPluginAPI)
 #if QT_VERSION >= 0x050000
-    Q_PLUGIN_METADATA(IID "nooba.plugins.qt5.template-plugin" FILE "templatePlugin.json")
+    Q_PLUGIN_METADATA(IID "nooba.plugins.qt5.faceanomaly1-plugin" FILE "faceanomaly1Plugin.json")
 #endif
 
 public:
-    TemplatePlugin();
-    ~TemplatePlugin();
+    Faceanomaly1Plugin();
+    ~Faceanomaly1Plugin();
 
     bool procFrame(const cv::Mat &in, cv::Mat &out, ProcParams &params);
     bool init();
@@ -37,4 +37,4 @@ public slots:
 
 };
 
-#endif // TEMPLATEPLUGIN_H
+#endif // FACEANOMALY1PLUGIN_H

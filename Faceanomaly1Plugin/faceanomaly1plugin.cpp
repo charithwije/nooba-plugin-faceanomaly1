@@ -1,37 +1,37 @@
-#include "templateplugin.h"
+#include "faceanomaly1plugin.h"
 #include <QtCore>
 #include <opencv2/core/core.hpp>
 
-TemplatePlugin::TemplatePlugin()
+Faceanomaly1Plugin::Faceanomaly1Plugin()
 {
 
 }
 
-TemplatePlugin::~TemplatePlugin()
+Faceanomaly1Plugin::~Faceanomaly1Plugin()
 {
 
 }
 
-bool TemplatePlugin::procFrame( const cv::Mat &in, cv::Mat &out, ProcParams &params )
+bool Faceanomaly1Plugin::procFrame( const cv::Mat &in, cv::Mat &out, ProcParams &params )
 {
 
     return true;
 }
 
-bool TemplatePlugin::init()
+bool Faceanomaly1Plugin::init()
 {
     return true;
 }
 
-bool TemplatePlugin::release()
+bool Faceanomaly1Plugin::release()
 {
     return true;
 }
 
-PluginInfo TemplatePlugin::getPluginInfo() const
+PluginInfo Faceanomaly1Plugin::getPluginInfo() const
 {
     PluginInfo pluginInfo(
-        "Template Plugin",
+        "Faceanomaly1 Plugin",
         0,
         1,
         "Plugin Description goes here",
@@ -43,5 +43,5 @@ PluginInfo TemplatePlugin::getPluginInfo() const
 // see qt4 documentation for details on the macro (Qt Assistant app)
 // Mandatory  macro for plugins in qt4. Made obsolete in qt5
 #if QT_VERSION < 0x050000
-    Q_EXPORT_PLUGIN2(TemplatePlugin, TemplatePlugin);
+    Q_EXPORT_PLUGIN2(Faceanomaly1Plugin, Faceanomaly1Plugin);
 #endif
