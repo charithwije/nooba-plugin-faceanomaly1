@@ -11,7 +11,7 @@ TARGET = faceanomaly1Plugin
 CONFIG(debug, debug|release): TARGET = Faceanomaly1Plugin_Debug
 CONFIG(release, debug|release): TARGET = Faceanomaly1Plugin_Release
 
-FACEANOMALY1 = lib
+TEMPLATE = lib
 CONFIG += dll
 
 DEFINES += FACEANOMALY1PLUGIN_LIB
@@ -29,7 +29,7 @@ unix {
     PKGCONFIG += opencv
 
     # remove sym links to the shared lib from the DESTDIR
-    QMAKE_POST_LINK = find $$DESTDIR -maxdepth 1 -type l -exec rm -f {} \;
+
 }
 
 CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../../NoobaVSS_build/NoobaPluginAPI/Debug/ -lNoobaPluginAPId

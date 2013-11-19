@@ -4,6 +4,8 @@
 #include "faceanomaly1plugin_global.h"
 #include "noobapluginapi.h"
 
+
+
 #include <QObject>
 
 class FACEANOMALY1PLUGIN_EXPORT Faceanomaly1Plugin: public NoobaPluginAPI
@@ -24,6 +26,9 @@ public:
     PluginInfo getPluginInfo() const;
 
 public slots:
+
+     void inputData(const PluginPassData& data);
+
 
     /**
      * These functions will be called when the parameters are changed by the
