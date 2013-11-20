@@ -29,7 +29,7 @@ unix {
     PKGCONFIG += opencv
 
     # remove sym links to the shared lib from the DESTDIR
-
+    QMAKE_POST_LINK = find $$DESTDIR -maxdepth 1 -type l -exec rm -f {} \;
 }
 
 CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../../NoobaVSS_build/NoobaPluginAPI/Debug/ -lNoobaPluginAPId
