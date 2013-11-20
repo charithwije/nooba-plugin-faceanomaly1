@@ -28,6 +28,10 @@ bool Faceanomaly1Plugin::procFrame( const cv::Mat &in, cv::Mat &out, ProcParams 
 
 bool Faceanomaly1Plugin::init()
 {
+    faceThresholdParameter ="face threashold";
+    faceThresholdValue = "4";
+    createStringParam(faceThresholdParameter,faceThresholdValue,true);
+
     return true;
 }
 
@@ -36,25 +40,35 @@ bool Faceanomaly1Plugin::release()
     return true;
 }
 
+void Faceanomaly1Plugin::onStringParamChanged(const QString& varName, const QString& val){
+
+    if(varName.compare(faceThresholdParameter)==0){
+
+        threasholdFaceCount=val.split(" ")[0].toInt();
+
+    }
+
+}
+
+
+
 
 void Faceanomaly1Plugin::inputData(const PluginPassData& data){
 
-//    QStringList arrived; =data.strList();
-//    QString s=arrived.value(0);
 
-//   // qDebug(s);
     QList <QStringList> list;
+    int i;
 
+    frameNum=data.strList().at(1);
+    if (!data.strList().at(0).isEmpty())
+        i= data.strList().at(0).split(" ")[0].toInt();
 
-    foreach(QString str,data.strList()){
-      // debugMsg("faces # : " + str);
+    if( i>=threasholdFaceCount){
 
-       int i= str.split(" ")[0].toInt();
-       if(!str.isEmpty() && i>=5){
-           debugMsg("<FONT COLOR='#ff0000'>****5 faces detected !!");
-       }
-       i=0;
+        debugMsg(QString("<FONT COLOR='#ff0000'>%1 faces detected on frame %2 ").arg(threasholdFaceCount).arg(frameNum));
     }
+    i=0;
+
 }
 
 

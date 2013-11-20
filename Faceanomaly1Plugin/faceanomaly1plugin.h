@@ -25,6 +25,18 @@ public:
     bool release();
     PluginInfo getPluginInfo() const;
 
+private :
+    QString faceThresholdParameter;
+    QString faceThresholdValue;
+     QString frameNum;
+    int threasholdFaceCount;
+
+private slots:
+
+       void onStringParamChanged(const QString& varName, const QString& val);
+
+
+
 public slots:
 
      void inputData(const PluginPassData& data);
