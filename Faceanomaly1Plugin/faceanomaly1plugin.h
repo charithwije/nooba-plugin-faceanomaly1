@@ -39,7 +39,7 @@ private slots:
 
 public slots:
 
-     void inputData(const PluginPassData& data);
+     void inputData(const QStringList& strList, QList<QImage> imageList);
 
 
     /**

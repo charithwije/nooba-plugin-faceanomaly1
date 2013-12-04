@@ -29,8 +29,10 @@ bool Faceanomaly1Plugin::procFrame( const cv::Mat &in, cv::Mat &out, ProcParams 
 bool Faceanomaly1Plugin::init()
 {
     faceThresholdParameter ="face threashold";
-    faceThresholdValue = "4";
+    faceThresholdValue = "3";
+    threasholdFaceCount =3;
     createStringParam(faceThresholdParameter,faceThresholdValue,true);
+
 
     return true;
 }
@@ -53,15 +55,14 @@ void Faceanomaly1Plugin::onStringParamChanged(const QString& varName, const QStr
 
 
 
-void Faceanomaly1Plugin::inputData(const PluginPassData& data){
+void Faceanomaly1Plugin::inputData(const QStringList& strList, QList<QImage> imageList){
 
-
-    QList <QStringList> list;
     int i;
 
-    frameNum=data.strList().at(1);
-    if (!data.strList().at(0).isEmpty())
-        i= data.strList().at(0).split(" ")[0].toInt();
+    frameNum=strList.at(1);
+
+    if (!strList.at(0).isEmpty())
+        i= strList.at(0).split(" ")[0].toInt();
 
     if( i>=threasholdFaceCount){
 
