@@ -1,3 +1,26 @@
+
+/*@file faceanomaly1plugin.cpp
+  @author  Charith Wijenayake <charithwije21@gmail.com>
+
+  @section LICENSE
+  Face Anomaly 1 API source file
+  Copyright (C) 2013 Developed by Team Nooba
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+
 #include "faceanomaly1plugin.h"
 #include <QtCore>
 #include <opencv2/core/core.hpp>
@@ -6,6 +29,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <QDebug>
 #include <QString>
+
 
 Faceanomaly1Plugin::Faceanomaly1Plugin()
 {
@@ -33,6 +57,7 @@ bool Faceanomaly1Plugin::init()
     threasholdFaceCount =3;
     createStringParam(faceThresholdParameter,faceThresholdValue,true);
 
+    createFrameViewer("Output");
 
     return true;
 }
@@ -54,7 +79,6 @@ void Faceanomaly1Plugin::onStringParamChanged(const QString& varName, const QStr
 
 
 
-
 void Faceanomaly1Plugin::inputData(const QStringList& strList, QList<QImage> imageList){
 
     int i;
@@ -64,9 +88,18 @@ void Faceanomaly1Plugin::inputData(const QStringList& strList, QList<QImage> ima
     if (!strList.at(0).isEmpty())
         i= strList.at(0).split(" ")[0].toInt();
 
+    if(!imageList.isEmpty()){
+
+        imageList.at(0);
+        updateFrameViewer("Output",imageList.at(0).copy());
+
+
+    }
+
     if( i>=threasholdFaceCount){
 
         debugMsg(QString("<FONT COLOR='#ff0000'>%1 faces detected on frame %2 ").arg(threasholdFaceCount).arg(frameNum));
+        generateAlert("Output","Too many people",nooba::RedAlert);
     }
     i=0;
 
